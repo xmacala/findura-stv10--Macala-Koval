@@ -1,0 +1,42 @@
+
+
+# Zadanie 4 z predmetu Databázové Systémy
+## Autori: Dávid Kováľ, Alex Macala
+
+### Bod 1:
+Hráč sa môže v hre registrovať buď priamo v hre, cez facebook alebo google účet. Pokiaľ sa registruje priamo v hre, jeho údaje sa uložia v tabuľke **Account**. 
+
+### Bod2: 
+Priatelia sú v hre uložení po prijatí pozvánky v tabuľke **Friends**, kde atribút *UserID* označuje informácie o hráčovi, s ktorým uzatvoríme priateľstvo.
+
+### Bod3: 
+Tabuľka **Team** obsahuje údaje o hráčoch, ktorí sú v tabuľke - atribút *AccountID*. Do tímu sa vie dostať hráč pomocou pozvánky, ktorú musí prijať.  
+
+### Bod4: 
+Komunikácia v chate prebieha počas hry buď medzi priateľmi alebo v tíme. Princíp chatovania je taký, že počas hry hráči píšu do chatu a po nejakom čase sa daná správa zmaže, aby text nezavadzal pri hre. 
+
+
+### Bod5:
+Postava používateľa a všetky dôležité atribúty *name*, *role*, *health*, *attack* ako útočné číslo, *defens*e ako obranné číslo, position 'x' a 'y' sú uložené v tabuľke **Character**. Pre lepšie ozrejmenie, hráč si vyberie rolu postavy a zobrazí sa mu jej meno, počet životov, útočné a obranné číslo. Atribúty *position x* a *position y* sú v tabuľke preto, aby sa vedeli uložiť súradnice, kde postava zomrie v súboji alebo kde zabije príšeru alebo iného hráča. 
+
+### Bod6:
+Príšeri sú reprezentované v tabuľke **Monster**. Atribút *LevelID* nám zaisťuje , že sa niektoré príšery vedia zjaviť postavám až od nejakého určitého levelu. Na to máme ďalší atribút *EXP* ktorý nám udáva, koľko EXP postava získa za zabitie príšery. 
+
+### Bod7:
+Úlohy sa nachádzajú v tabuľke **Task**.
+Úlohy slúžia na zbieranie EXP a tým teda zvyšovanie levelu postavy. Atribút *exp nám udáva, koľko exp bodov získame za splnenie úlohy.
+
+### Bod8: 
+Tabuľka **LEVEL** obsahuje atribúty *newskill* a *number of skills*, ktoré umožňujú postave pri dosiahnutí nového levela si vybrať počet nových schopností a vybrať si aj konkrétne schopnosti, ktoré jej pribudnú v ďalších hrách.
+
+### Bod9:
+Tabuľku **Level** máme na zvyšovanie parametrov postavy, a to konkrétne atribúty *health*, *attack*, *defense*, *newskill* a *number of skills*
+
+### Bod10:
+Mapa reprezentovaná v tabuľke **Map** je dôležitou časťou našej hry a máme ju rozdelenú do rôznych podlaží, kam sa vie postava pohybovať v rámci veľkosti svojho levelu. Na každom podlaží sa takisto nachádzaju úlohy a predmety, ktoré hráč plní počas hry a získava spomínané exp body.
+
+### Bod11:
+Predmety v tabuľke **Item** sa nachádzajú na mape v každom podlaží a keď ho hráč zoberie, môže sa rozhodnúť, či bude dany predmet používať alebo nie. Ak ho použije , tak každý predmet má nejaké schopnosti, resp. Zvyšuje abilitky postavy. 
+
+### Bod12:
+V tabuľke **Combat** sú uložené údaje zo súboja, aby bolo jasné koľko EXP získal víťaz zo súboja, na akej pozícii sa na mape nachádzal a kto vyhral/prehral. 
