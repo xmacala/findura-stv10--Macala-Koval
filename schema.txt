@@ -1,0 +1,141 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table users as U {
+  id int [pk, increment] // auto-increment
+}
+
+
+//----------------------------------------------//
+
+//// -- LEVEL 2
+//// -- Adding column settings
+
+Table character {
+  charcterID int [pk]
+  name varchar
+  role varchar
+  health int
+  attack int
+  defense int
+  position_x int
+  position_y int
+  user_id int
+  level_id int
+  map_id int
+  item_id int
+ }
+
+Ref: character.user_id > users.id
+Ref: character.level_id - level.levelID
+Ref: character.item_id - item.itemID
+Ref: character.map_id - map.mapID
+
+Table team {
+  teamID int [pk] 
+  name varchar
+  account_id int
+}
+
+Ref: team.account_id - users.id
+
+Table friends {
+  friendsID int [pk] 
+  friend_id int
+  user_id int
+}
+
+Ref: friends.user_id - users.id
+
+Table account {
+  AccountID int [pk] 
+  game_account boolean
+  facebook_account boolean
+  gmail_account boolean
+  user_id int
+  
+}
+
+Ref: account.user_id - users.id
+
+//----------------------------------------------//
+
+//// -- Level 3 
+//// -- Enum, Indexes
+
+
+// Indexes: You can define a single or multi-column index 
+Table level {
+  levelID int [pk]
+  health int
+  attack int 
+  defense int
+  new_skill varchar
+  nuber_of_skills int
+
+}
+
+Table item {
+  itemID int [pk]
+  name varchar
+  health int
+  attack int
+  defense int
+  map_id int
+}
+
+Ref: item.map_id > map.mapID
+
+Table monster {
+  monsterID int [pk]
+  role varchar
+  name varchar
+  health int
+  attack int
+  defense int
+  map_id int
+  level_id int
+}
+
+Ref: monster.map_id > map.mapID
+Ref: monster.level_id - level.levelID
+
+Table map {
+  mapID int [pk]
+  floor int
+  task_id int
+}
+
+Ref: map.task_id < task.taskID
+
+Table task {
+  taskID int [pk]
+  exp int
+}
+
+Table combat {
+  combatID int [pk]
+  postition_x int
+  postition_y int
+  exp int
+  winner_id int
+  looser_id int
+  
+}
+
+Ref : combat.winner_id - character.charcterID
+Ref : combat.looser_id - character.charcterID
+
+Table game_account {
+  gameAccountID int [pk] 
+  username varchar
+  password varchar
+  email varchar
+  account_id boolean
+}
+
+Ref: game_account.account_id - account.game_account
+
+//composite foreign key
+
